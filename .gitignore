@@ -1,0 +1,33 @@
+# ===== 密钥与配置（真实配置不入库，用 application.yml.example 代替）=====
+application.yml
+application.properties
+.env
+*.env
+
+# ===== 数据库备份 / 导出（保留 database/init.sql 建表脚本）=====
+db_backup*.sql
+*.zip
+*.rar
+
+# ===== 后端构建产物 =====
+target/
+backend/target/
+
+# ===== 前端构建产物与依赖 =====
+dist/
+node_modules/
+
+# ===== 运行时上传目录 =====
+uploads/
+
+# ===== IDE =====
+.idea/
+*.iml
+.vscode/
+
+# ===== 系统 =====
+.DS_Store
+Thumbs.db
+
+# ===== 文档（按需）=====
+*.docx

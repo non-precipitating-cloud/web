@@ -1,0 +1,212 @@
+/* ============================================
+   餐厅点餐系统 — 全局设计 Token & 基础样式
+   ============================================ */
+
+/* ---------- CSS 变量 ---------- */
+:root {
+  /* 主色系 — 食欲红 */
+  --color-primary: #e74c3c;
+  --color-primary-dark: #c0392b;
+  --color-primary-light: #fde8e8;
+  --color-primary-rgb: 231, 76, 60;
+
+  /* 辅助色 */
+  --color-accent: #f0a500;
+  --color-accent-light: #fff8e1;
+  --color-success: #27ae60;
+  --color-warning: #f39c12;
+  --color-danger: #e74c3c;
+  --color-info: #3498db;
+
+  /* 背景 */
+  --bg-page: #f8f5f2;
+  --bg-card: #ffffff;
+  --bg-warm: #fffaf5;
+
+  /* 文字 */
+  --color-text: #2c3e50;
+  --color-text-secondary: #909399;
+  --color-text-muted: #c0c4cc;
+
+  /* 阴影 */
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 2px 16px rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 8px 28px rgba(0, 0, 0, 0.10);
+  --shadow-dialog: 0 12px 48px rgba(0, 0, 0, 0.12);
+
+  /* 圆角 */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+
+  /* 间距 */
+  --gap-xs: 6px;
+  --gap-sm: 12px;
+  --gap-md: 16px;
+  --gap-lg: 24px;
+  --gap-xl: 32px;
+
+  /* 过渡 */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+  --transition-slow: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---------- 全局重置 ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: var(--color-text);
+  background: var(--bg-page);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ---------- 滚动条 ---------- */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d0d0d0;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b0b0b0;
+}
+
+/* ---------- 页面过渡动画 ---------- */
+.page-fade-enter-active,
+.page-fade-leave-active {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.page-fade-enter-from {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.page-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+/* ---------- 覆盖 Element Plus 组件 ---------- */
+
+/* 按钮 */
+.el-button--primary {
+  --el-button-bg-color: var(--color-primary);
+  --el-button-border-color: var(--color-primary);
+  --el-button-hover-bg-color: var(--color-primary-dark);
+  --el-button-hover-border-color: var(--color-primary-dark);
+  --el-button-active-bg-color: var(--color-primary-dark);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* 卡片 */
+.el-card {
+  border-radius: var(--radius-lg) !important;
+  border: none !important;
+  box-shadow: var(--shadow-card) !important;
+  transition: box-shadow var(--transition-normal);
+}
+.el-card:hover {
+  box-shadow: var(--shadow-hover) !important;
+}
+
+/* 标签 */
+.el-tag {
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+}
+
+/* 对话框 */
+.el-dialog {
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-dialog) !important;
+}
+.el-dialog__header {
+  padding: 20px 24px 0;
+}
+.el-dialog__body {
+  padding: 20px 24px;
+}
+.el-dialog__footer {
+  padding: 0 24px 20px;
+}
+
+/* 表格 */
+.el-table {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.el-table th.el-table__cell {
+  background: #fafafa;
+  color: var(--color-text);
+  font-weight: 600;
+  font-size: 13px;
+}
+.el-table .el-table__row:hover > td.el-table__cell {
+  background: #fef8f6;
+}
+
+/* 输入框 */
+.el-input__wrapper {
+  border-radius: var(--radius-sm) !important;
+  transition: box-shadow var(--transition-fast);
+}
+.el-input__wrapper:hover {
+  box-shadow: 0 0 0 1px var(--color-primary-light) inset;
+}
+
+/* 分页 */
+.el-pagination .el-pager li.is-active {
+  background: var(--color-primary) !important;
+  border-radius: var(--radius-sm);
+}
+
+/* 单选框按钮 */
+.el-radio-button__inner {
+  border-radius: var(--radius-sm) !important;
+}
+
+/* 菜单 */
+.el-menu-item.is-active {
+  font-weight: 600;
+}
+
+/* 抽屉 */
+.el-drawer {
+  --el-drawer-padding-primary: 20px;
+}
+
+/* 消息提示 */
+.el-message {
+  border-radius: var(--radius-md) !important;
+  box-shadow: var(--shadow-card);
+}
+
+/* 确认框 */
+.el-message-box {
+  border-radius: var(--radius-lg) !important;
+}
